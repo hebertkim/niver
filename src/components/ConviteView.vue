@@ -1,21 +1,44 @@
 <template>
-  <div class="invitation bg-black text-gold p-6 min-h-screen flex flex-col justify-center items-center">
-    <h1 class="text-3xl md:text-4xl font-bold">70 Anos de Wauri Alves de Souza</h1>
-    <p class="mt-4 text-center">Rua República Argentina, 1336</p>
+  <div class="bg-blue-900 text-white min-h-screen flex flex-col justify-center items-center p-6">
+    <!-- Título do Convite -->
+    <h1 class="text-4xl font-bold text-center text-gold mb-8">Convite Especial</h1>
 
-    <!-- Ícones -->
-    <div class="icons mt-6 flex gap-6">
-      <button @click="irParaConfirmacao" class="icon-button bg-gold-gradient p-4 rounded-full">
-        <i class="fa fa-check text-black"></i>
-        <span>Confirmar Presença</span>
-      </button>
-      <button @click="abrirLocalizacao" class="icon-button bg-gold-gradient p-4 rounded-full">
-        <i class="fa fa-map-marker text-black"></i>
+    <!-- Foto do Aniversariante -->
+    <div class="mb-8">
+      <img
+        src="../assets/wauri.jpg"
+        alt="Wauri Alves de Souza"
+        class="w-32 h-32 rounded-full border-4 border-gold mx-auto"
+      />
+    </div>
+
+    <!-- Detalhes do Evento -->
+    <h2 class="text-2xl font-semibold text-center mb-2">70 Anos de Wauri Alves de Souza</h2>
+    <p class="text-center text-lg mb-4">Data: 01/12 | Local: Spira Business</p>
+
+    <!-- Texto para os Convidados -->
+    <p class="text-center text-lg text-gray-300 mb-8 px-6">
+      Venha celebrar conosco esta data especial! Sua presença tornará este momento ainda mais inesquecível.
+    </p>
+
+    <!-- Ícones para Interação -->
+    <div class="flex gap-6 mb-8">
+      <!-- Icone de Localização -->
+      <button
+        @click="abrirLocalizacao"
+        class="flex items-center justify-center bg-gold text-blue-900 p-4 rounded-full shadow-lg hover:bg-gold-dark"
+      >
+        <i class="fa fa-map-marker-alt text-xl mr-2"></i>
         <span>Local do Evento</span>
       </button>
-      <button @click="irParaSugestoes" class="icon-button bg-gold-gradient p-4 rounded-full">
-        <i class="fa fa-gift text-black"></i>
-        <span>Sugestão de Presente</span>
+
+      <!-- Icone de Confirmar Presença -->
+      <button
+        @click="irParaConfirmacao"
+        class="flex items-center justify-center bg-gold text-blue-900 p-4 rounded-full shadow-lg hover:bg-gold-dark"
+      >
+        <i class="fa fa-check text-xl mr-2"></i>
+        <span>Confirmar Presença</span>
       </button>
     </div>
   </div>
@@ -25,39 +48,27 @@
 export default {
   name: "ConviteView",
   methods: {
+    abrirLocalizacao() {
+      const endereco = "https://www.google.com/maps/place/Av.+Rep.+Argentina,+1336+-+Vila+Izabel,+Curitiba+-+PR,+80620-010/@-25.4581241,-49.291949,892m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94dce37f2b991337:0x98f1a04aa9de5102!8m2!3d-25.4581241!4d-49.2893687!16s%2Fg%2F11c0xnc_j8?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D";
+      window.open(endereco, "_blank");
+    },
     irParaConfirmacao() {
       this.$router.push("/confirmar-presenca");
-    },
-    abrirLocalizacao() {
-      const endereco = "Rua República Argentina, 1336";
-      window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endereco)}`, "_blank");
-    },
-    irParaSugestoes() {
-      this.$router.push("/sugestoes-presente");
     }
   }
 };
 </script>
 
 <style scoped>
-.invitation {
-  background-image: url("../assets/back.png");
-  background-size: contain; /* Altera para 'contain' para mostrar a imagem inteira */
-  background-position: center;
-  background-repeat: no-repeat; /* Evita repetição da imagem */
-  height: 100vh; /* Garante que a altura ocupe toda a tela */
-}
 .text-gold {
   color: #f5e37e;
 }
-.bg-gold-gradient {
-  background: linear-gradient(90deg, #f3db6e, #C2B280); /* Gradiente de dourado claro a dourado escuro */
+
+.bg-gold {
+  background-color: #f5e37e;
 }
-.icon-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: bold;
-  color: #000;
+
+.bg-gold-dark {
+  background-color: #c2a130;
 }
 </style>
