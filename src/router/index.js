@@ -1,10 +1,8 @@
+import ConfirmarPresenca from "@/components/ConfirmarPresenca.vue";
 import { createRouter, createWebHistory } from "vue-router";
-import ConviteView from "../components/ConviteView.vue";
-import ConfirmarPresenca from "../components/ConfirmarPresenca.vue";
 
 const routes = [
-  { path: "/", component: ConviteView },
-  { path: "/confirmar-presenca", component: ConfirmarPresenca },
+  { path: "/", component: ConfirmarPresenca },
 ];
 
 const router = createRouter({
